@@ -1,13 +1,52 @@
 # 2023-Most-Streamed-Spotify-Songs-vs-66th-Annual-Grammy-Awards
-The goals of this exploratory data analysis project were: To investigate artist and song cross-platform performance to reveal most popular artists and songs of 2023. To analyze cross-platform performances and audio feature patterns to understand trends and preferences in Grammy nominations.
 
+## Executive Summary
+The goals of this exploratory data analysis project were:
+* To investigate artist and song cross-platform performance to reveal most popular artists and songs of 2023.
+* To analyze cross-platform performances and audio feature patterns to understand trends and preferences in Grammy nominations.
+Business Problem
 
+This Kaggle dataset "contains a comprehensive list of the most famous songs of 2023 as listed on Spotify." There is also information about each song’s presence on Apple, Deezer, and Shazam. We want to explore this dataset to answer the following questions:
+* How do songs perform across different streaming services?
+* How do artists perform across different streaming services?
+* Are there any trends or preferences in the audio features of popular songs?
 
+Similarly, although “Recording Academy Voting Members shall not allow their choices to be suggested, directed or influenced by anything other than their own analysis of merit, including, but not limited to: personal friendships, company loyalties, regional preferences or sales volume/popularity,” are there any patterns between who wins and their popularity?
 
+## Methodology
 
+1. Dataset Exploration
+  * Cross-Platform Presence: Investigating how songs perform across different streaming services.
+  * Artist Performance & Cross-Platform Presence: Investigating artist performance across different streaming services.
+  * Music Analysis: Exploring audio features to understand trends and preferences in popular songs.
 
+2. Grammy Analysis
+  * Best Pop Solo Performance: Popularity Analysis
+  * Song of the Year: Audio Analysis
+  * Best New Artist: Popularity Analysis
+  * Record of the Year
+    * Popularity Analysis
+    * Audio Analysis
+  * Album of the Year
+    * Popularity Analysis
+    * Audio Analysis
 
+Python
+1. Import libraries and dataset. Clean the dataset.
+2. Exploratory analysis and visualization using numpy, pandas, seaborn, and matplotlib libraries.
 
+SQL & Tableau
+1. Import dataset to Google Sheets and remove special characters from dataset (pgAdmin would not import otherwise).
+2. SQL queries to extract, clean, and transform the data from the database to perform exploratory analysis.
+3. Build visualizations in Tableau to illustrate key findings.
+
+## Skills
+
+Python: numpy, pandas, seaborn (box plots, gradients, bar plots, histograms, scatterplots), matplotlib
+
+SQL: filters, aggregate functions (MIN(), MAX(), COUNT(), SUM(), AVG(), STDDEV())
+
+Tableau: bar graphs, scatter plots
 
 ## Results
 
