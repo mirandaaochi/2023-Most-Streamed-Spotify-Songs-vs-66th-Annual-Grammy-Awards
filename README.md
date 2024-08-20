@@ -40,7 +40,20 @@ Of the 348 songs in the dataset, 67 songs were released in 2023. Peso Pluma rele
 
 The Weeknd had the most streams overall.
 
+*Artists in the Most Playlists*
 
+| Rank | #1 | #2 | #3 | #4 | #5 | #6 | #7 | #8 | #9 | #10 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Spotify | The Weeknd | Eminem | Ed Sheeran | Taylor Swift | Bad Bunny | Dua Lipa | Kendrick Lamar | Harry Styles | Coldplay | Dr. Dre |
+| Spotify Playlists | 233079 | 155091 | 142877 | 137766 | 137562 | 119490 | 113963 | 110026 | 105218 | 104608 |
+| Apple | The Weeknd | Dua Lipa | Bad Bunny | Taylor Swift | Ed Sheeran | Harry Styles | Drake | Justin Bieber | Calvin Harris | Doja Cat |
+| Apple Playlists | 3023 | 2118 | 2016 | 1899 | 1857 | 1741 | 1370 | 1369 | 1232 | 1151 |
+| Deezer | Eminem | Ed Sheeran | Coldplay | Dr. Dre | Linkin Park | Nirvana | The Weeknd | Snoop Dogg | Daft Punk | Adele |
+| Deezer Playlists | 24524 | 17833 | 15419 | 15408 | 14149 | 13564 | 12474 | 12075 | 10660 | 9299 |
+
+ *Songs in the Most Playlists*
+
+#Finish this
 
 | Rank | #1 | #2 | #3 | #4 | #5 | #6 | #7 | #8 | #9 | #10 |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -50,34 +63,21 @@ The Weeknd had the most streams overall.
 | Shazam | 301 | 283 | 290 | 286 | 289 | 285 | 287 | 287 | 272 | 276 |
 
 
-| Rank | #1 | #2 | #3 | #4 | #5 | #6 | #7 | #8 | #9 | #10 |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Spotify | 301 | 283 | 290 | 286 | 289 | 285 | 287 | 287 | 272 | 276 |
-| Apple | 301 | 283 | 290 | 286 | 289 | 285 | 287 | 287 | 272 | 276 |
-| Deezer | 301 | 283 | 290 | 286 | 289 | 285 | 287 | 287 | 272 | 276 |
-| Shazam | 301 | 283 | 290 | 286 | 289 | 285 | 287 | 287 | 272 | 276 |
+**Music Analysis**
+
+*Audio Features Distributions*
+
+![Distributions of Audio Features](https://github.com/user-attachments/assets/806a3f4e-7756-462c-ba5f-7ccad0d0046c)
+
+*Key and Mode*
+
+![Key and Mode](https://github.com/user-attachments/assets/124b3367-66ab-4e0d-9a96-3de7b7e0de9b)
+
+*Audio Features Correlations*
+
+*Audio Features vs. Streams*
+
+![Audio Features vs Streams (w: Trend Lines)](https://github.com/user-attachments/assets/097f81ec-5f63-482c-ab35-620c19cd7e18)
 
 
 
-| Rank | #1 | #2 | #3 | #4 | #5 | #6 | #7 | #8 | #9 | #10 |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Spotify | 301 | 283 | 290 | 286 | 289 | 285 | 287 | 287 | 272 | 276 |
-| Apple | 301 | 283 | 290 | 286 | 289 | 285 | 287 | 287 | 272 | 276 |
-| Deezer | 301 | 283 | 290 | 286 | 289 | 285 | 287 | 287 | 272 | 276 |
-| Shazam | 301 | 283 | 290 | 286 | 289 | 285 | 287 | 287 | 272 | 276 |
-
-
-| Rank | #1 | #2 | #3 | #4 | #5 | #6 | #7 | #8 | #9 | #10 |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Spotify | 301 | 283 | 290 | 286 | 289 | 285 | 287 | 287 | 272 | 276 |
-| Apple | 301 | 283 | 290 | 286 | 289 | 285 | 287 | 287 | 272 | 276 |
-| Deezer | 301 | 283 | 290 | 286 | 289 | 285 | 287 | 287 | 272 | 276 |
-| Shazam | 301 | 283 | 290 | 286 | 289 | 285 | 287 | 287 | 272 | 276 |
-
-
-| Rank | #1 | #2 | #3 | #4 | #5 | #6 | #7 | #8 | #9 | #10 |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Spotify | 301 | 283 | 290 | 286 | 289 | 285 | 287 | 287 | 272 | 276 |
-| Apple | 301 | 283 | 290 | 286 | 289 | 285 | 287 | 287 | 272 | 276 |
-| Deezer | 301 | 283 | 290 | 286 | 289 | 285 | 287 | 287 | 272 | 276 |
-| Shazam | 301 | 283 | 290 | 286 | 289 | 285 | 287 | 287 | 272 | 276 |
