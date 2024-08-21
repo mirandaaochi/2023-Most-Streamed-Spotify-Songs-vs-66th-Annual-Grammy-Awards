@@ -189,16 +189,10 @@ Nominees:
 
 *Popularity Analysis*
 
-![Screenshot 2024-08-21 at 12 29 55 PM](https://github.com/user-attachments/assets/c7aef4a7-418f-4953-a6f1-6e3825cae3ea)
-
 * Only 5 of those songs are included in our dataset: “Flowers”, “Kill Bill”, “Anti-Hero”, “vampire”, “What Was I Made For?”
 * "Flowers" has the most streams, chart appearances, and playlist adds.
 
 *Audio Analysis*
-
-![Screenshot 2024-08-21 at 12 30 03 PM](https://github.com/user-attachments/assets/4c3dc4f1-2d0f-4f92-9412-dbb354a76eb1)
-
-![Screenshot 2024-08-21 at 12 30 09 PM](https://github.com/user-attachments/assets/5845f71b-f6ce-42ce-ba27-f4b3004a5c19)
 
  * "vampire": fastest BPM; highest liveness percentage
  * "Flowers": highest danceability, valence, speechiness; the lowest liveness
@@ -206,6 +200,34 @@ Nominees:
  * "What Was I Made For?": slowest BPM; highest acousticness; lowest danceability, valence, energy, speechiness
  * "Anti-Hero": tied with "vampire", "Flowers", and "What Was I Made For?" for lowest instrumentalness at 0%
  * All 5 tracks are in a major key, but the actual key varies.
+
+*Album of the Year*
+
+Winner: "Midnights" by Taylor Swift
+
+Nominees:
+  * "World Music Radio" by Jon Batiste
+  * "GUTS" by Olivia Rodrigo
+  * "the record" by boygenius
+  * "SOS" by SZA
+  * "The Age of Pleasure" by Janelle Monáe
+  * "Did You Know That There's A Tunnel Under Ocean Blvd" by Lana Del Rey
+  * "Endless Summer Vacation" by Miley Cyrus
+
+*Popularity Analysis*
+
+![Screenshot 2024-08-21 at 12 29 55 PM](https://github.com/user-attachments/assets/c7aef4a7-418f-4953-a6f1-6e3825cae3ea)
+
+  * SZA had the most songs become "popular" with 19 off of "SOS". However, Taylor Swift had the most streams with "Midnights".
+  * It does not appear that the date of release affects streaming numbers. This can be seen with "Flowers", which leads in terms of streams but was released in the middle. In addition, "vampire" has more streams than latest "Midnights" songs but was released later.
+
+*Audio Analysis*
+
+The following visualizations show the average attributes for the popular songs from each album.
+
+![Screenshot 2024-08-21 at 12 30 03 PM](https://github.com/user-attachments/assets/4c3dc4f1-2d0f-4f92-9412-dbb354a76eb1)
+
+![Screenshot 2024-08-21 at 12 30 09 PM](https://github.com/user-attachments/assets/5845f71b-f6ce-42ce-ba27-f4b3004a5c19)
 
 **Limitations**
  * Missing Data: This dataset was last updated in August 2023 (missing August - December)!
