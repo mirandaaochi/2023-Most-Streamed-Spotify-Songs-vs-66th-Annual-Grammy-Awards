@@ -1,0 +1,435 @@
+-- These are the SQL queries used for this project.
+
+/* Create Table
+CREATE TABLE spotify (
+    track_name VARCHAR(255) NOT NULL,
+    artist_name VARCHAR(255) NOT NULL,
+    artist_count INT NOT NULL,
+    released_year INT NOT NULL,
+    released_month INT NOT NULL,
+    released_day INT NOT NULL,
+    in_spotify_playlists INT NOT NULL,
+    in_spotify_charts INT NOT NULL,
+    streams BIGSERIAL NOT NULL,
+    in_apple_playlists INT NOT NULL,
+    in_apple_charts INT NOT NULL,
+    in_deezer_playlists INT NOT NULL,
+    in_deezer_charts INT NOT NULL,
+    in_shazam_charts INT,
+    bpm INT NOT NULL,
+    key VARCHAR(255),
+    mode VARCHAR(255) NOT NULL,
+    danceability_percent INT NOT NULL,
+    valence_percent INT NOT NULL,
+    energy_percent INT NOT NULL,
+    acousticness_percent INT NOT NULL,
+    instrumentalness_percent INT NOT NULL,
+    liveness_percent INT NOT NULL,
+    speechiness_percent INT NOT NULL
+);
+
+-- Exploratory Analysis
+
+/* Most Popular Songs By Chart Appearance For Each Platform
+
+SELECT 
+track_name,
+artist_name,
+in_spotify_charts
+FROM
+spotify
+ORDER BY
+in_spotify_charts DESC
+LIMIT 10;
+
+SELECT 
+track_name,
+artist_name,
+in_apple_charts
+FROM
+spotify
+ORDER BY
+in_apple_charts DESC
+LIMIT 10;
+
+SELECT 
+track_name,
+artist_name,
+in_deezer_charts
+FROM
+spotify
+ORDER BY
+in_deezer_charts DESC
+LIMIT 10;
+
+SELECT 
+track_name,
+artist_name,
+in_shazam_charts
+FROM
+spotify
+WHERE in_shazam_charts IS NOT NULL
+ORDER BY
+in_shazam_charts DESC
+LIMIT 10;
+
+/* Top 10 Spotify Songs By Streams
+
+SELECT 
+track_name,
+artist_name,
+streams
+FROM
+spotify
+ORDER BY
+streams DESC
+LIMIT 10;
+
+/* Top 5 Songs On Spotify With 1 Artist vs. Multiple Artists
+
+SELECT
+track_name,
+artist_name,
+streams
+FROM spotify
+WHERE
+artist_count = 1
+ORDER BY streams desc
+LIMIT 5;
+
+SELECT
+track_name,
+artist_name,
+streams
+FROM spotify
+WHERE
+artist_count > 1
+ORDER BY streams desc
+LIMIT 5;
+
+/* Number of Collaborative Songs
+
+SELECT
+COUNT(*)
+FROM spotify
+WHERE
+artist_count > 1;
+
+/* Songs In The Mosts Playlists For Each Platform
+
+SELECT 
+track_name,
+artist_name,
+in_spotify_playlists
+FROM
+spotify
+ORDER BY
+in_spotify_playlists DESC
+LIMIT 10;
+
+SELECT 
+track_name,
+artist_name,
+in_apple_playlists
+FROM
+spotify
+ORDER BY
+in_apple_playlists DESC
+LIMIT 10;
+
+SELECT 
+track_name,
+artist_name,
+in_deezer_playlists
+FROM
+spotify
+ORDER BY
+in_deezer_playlists DESC
+LIMIT 10;
+
+/* Audio Features
+
+SELECT 
+min(bpm) as min_bpm,
+max(bpm) as max_bpm,
+avg(bpm) as avg_bpm,
+stddev(bpm) as std_dev_bpm
+FROM 
+spotify;
+
+SELECT 
+min(danceability_percent) as min_danceability,
+max(danceability_percent) as max_danceability,
+avg(danceability_percent) as avg_danceability,
+stddev(danceability_percent) as std_dev_danceability
+FROM 
+spotify;
+
+SELECT 
+min(valence_percent) as min_val,
+max(valence_percent) as max_val,
+avg(valence_percent) as avg_val,
+stddev(valence_percent) as std_dev_val
+FROM 
+spotify;
+
+SELECT 
+min(acousticness_percent) as min_ac,
+max(acousticness_percent) as max_ac,
+avg(acousticness_percent) as avg_ac,
+stddev(acousticness_percent) as std_dev_ac
+FROM 
+spotify;
+
+SELECT 
+min(instrumentalness_percent) as min_inst,
+max(instrumentalness_percent) as max_inst,
+avg(instrumentalness_percent) as avg_inst,
+stddev(instrumentalness_percent) as std_dev_inst
+FROM 
+spotify;
+
+SELECT 
+min(liveness_percent) as min_live,
+max(liveness_percent) as max_live,
+avg(liveness_percent) as avg_live,
+stddev(liveness_percent) as std_dev_live
+FROM 
+spotify;
+
+SELECT 
+min(speechiness_percent) as min_sp,
+max(speechiness_percent) as max_sp,
+avg(speechiness_percent) as avg_sp,
+stddev(speechiness_percent) as std_dev_sp
+FROM 
+spotify;
+
+/* Create Table (for full analysis of artists)
+
+CREATE TABLE exploded (
+    track_name VARCHAR(255) NOT NULL,
+    artist_name VARCHAR(255) NOT NULL,
+    artist_count INT NOT NULL,
+    released_year INT NOT NULL,
+    released_month INT NOT NULL,
+    released_day INT NOT NULL,
+	release_date VARCHAR(100),
+    in_spotify_playlists INT NOT NULL,
+    in_spotify_charts INT NOT NULL,
+    streams BIGSERIAL NOT NULL,
+    in_apple_playlists INT NOT NULL,
+    in_apple_charts INT NOT NULL,
+    in_deezer_playlists INT NOT NULL,
+    in_deezer_charts INT NOT NULL,
+    in_shazam_charts INT,
+    bpm INT NOT NULL,
+    key VARCHAR(255),
+    mode VARCHAR(255) NOT NULL,
+    danceability_percent INT NOT NULL,
+    valence_percent INT NOT NULL,
+    energy_percent INT NOT NULL,
+    acousticness_percent INT NOT NULL,
+    instrumentalness_percent INT NOT NULL,
+    liveness_percent INT NOT NULL,
+    speechiness_percent INT NOT NULL
+);
+
+/* Artist With Most Songs
+
+SELECT
+artist_name,
+COUNT(artist_name) as num_songs
+FROM exploded
+GROUP BY
+artist_name
+ORDER BY
+num_songs DESC
+LIMIT 10;
+
+/* Artist With Most Songs Released In 2023
+
+SELECT
+artist_name,
+COUNT(artist_name) as num_songs
+FROM exploded
+WHERE
+released_year = 2023
+GROUP BY
+artist_name
+ORDER BY
+num_songs DESC
+LIMIT 10;
+
+/* # Of Artists
+
+SELECT
+COUNT(DISTINCT artist_name) as tot_artist
+FROM exploded;
+
+/* Artists With Most Streams
+
+SELECT
+artist_name,
+COUNT(streams) as tot_streams
+FROM
+exploded
+GROUP BY
+artist_name
+ORDER BY
+tot_streams DESC
+LIMIT 10;
+
+-- Grammy Analysis
+
+/* Create Table
+
+CREATE TABLE grammy (
+    track_name VARCHAR(255) NOT NULL,
+    artist_name VARCHAR(255) NOT NULL,
+    artist_count INT NOT NULL,
+    released_year INT NOT NULL,
+    released_month INT NOT NULL,
+    released_day INT NOT NULL,
+    release_date DATE NOT NULL,
+    in_spotify_playlists INT NOT NULL,
+    in_spotify_charts INT NOT NULL,
+    streams BIGSERIAL NOT NULL,
+    in_apple_playlists INT NOT NULL,
+    in_apple_charts INT NOT NULL,
+    in_deezer_playlists INT NOT NULL,
+    in_deezer_charts INT NOT NULL,
+    in_shazam_charts INT,
+    bpm INT NOT NULL,
+    key VARCHAR(255),
+    mode VARCHAR(255) NOT NULL,
+    danceability_percent INT NOT NULL,
+    valence_percent INT NOT NULL,
+    energy_percent INT NOT NULL,
+    acousticness_percent INT NOT NULL,
+    instrumentalness_percent INT NOT NULL,
+    liveness_percent INT NOT NULL,
+    speechiness_percent INT NOT NULL
+);
+
+/* Best Pop Solo Performance
+
+SELECT
+*
+FROM
+grammy
+WHERE
+track_name = 'Flowers' 
+or track_name = 'Anti-Hero' 
+or track_name = 'vampire' 
+or track_name = 'What Was I Made For? [From The Motion Picture Barbie]'
+or track_name = 'Paint the Town Red'
+ORDER BY
+streams DESC;
+
+/* Song of the Year
+
+SELECT
+*
+FROM
+grammy
+WHERE
+track_name = 'What Was I Made For? [From The Motion Picture Barbie]'
+or track_name = 'vampire' 
+or track_name = 'Flowers' 
+or track_name = 'Dance The Night (From Barbie The Album)'
+or track_name = 'Butterfly'
+or track_name = 'Anti-Hero' 
+or track_name = 'A&W'
+ORDER BY
+streams DESC;
+
+/* Best New Artist
+
+SELECT
+*
+FROM
+grammy
+WHERE
+artist_name = 'Victoria Monet'
+or artist_name = 'Jelly Roll'
+or artist_name = 'The War and Treaty'
+or artist_name = 'Noah Kahan'
+or artist_name = 'Coco Jones'
+or artist_name = 'Ice Spice'
+or artist_name = 'Fred again...'
+or artist_name = 'Gracie Abrams'
+ORDER BY
+streams DESC;
+
+/* Record of the Year
+
+SELECT
+*
+FROM
+grammy
+WHERE
+track_name = 'Flowers' 
+or track_name = 'Worship'
+or track_name = 'Anti-Hero' 
+or track_name = 'vampire' 
+or track_name = 'On My Mama'
+or track_name = 'Not Strong Enough'
+or track_name = 'What Was I Made For? [From The Motion Picture Barbie]'
+or track_name = 'Kill Bill'
+ORDER BY
+streams DESC;
+
+/* Album of the Year
+
+SELECT
+*
+FROM
+grammy
+WHERE 
+release_date BETWEEN '2022-10-21' AND '2023-06-30'
+and artist_name = 'Taylor Swift'
+or artist_name = 'Olivia Rodrigo'
+or artist_name = 'SZA'
+or artist_name = 'Miley Cyrus'  
+ORDER BY
+release_date;
+
+/* # of Songs
+
+SELECT
+artist_name,
+COUNT(track_name) as num_songs
+FROM
+grammy
+WHERE 
+release_date BETWEEN '2022-10-21' AND '2023-06-30'
+and artist_name = 'Taylor Swift'
+or artist_name = 'Olivia Rodrigo'
+or artist_name = 'SZA'
+or artist_name = 'Miley Cyrus'  
+GROUP BY
+artist_name;
+
+/* # of Streams
+
+SELECT
+artist_name,
+SUM(streams) as num_streams
+FROM
+grammy
+WHERE 
+release_date BETWEEN '2022-10-21' AND '2023-06-30'
+and artist_name = 'Taylor Swift'
+or artist_name = 'Olivia Rodrigo'
+or artist_name = 'SZA'
+or artist_name = 'Miley Cyrus'  
+GROUP BY
+artist_name
+ORDER BY
+num_streams DESC;
+
+
+
+
+
